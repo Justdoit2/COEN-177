@@ -31,6 +31,6 @@ void twelveChild(){
 
 
 int main(){
-  twelveChild();//tree goes bottom down left,then up down again
-  //Creates 12 child processes, with each child creating another 3 child processescc
+  twelveChild();
+  //Creates 12 child processes, with each child creating another 3 
 }
