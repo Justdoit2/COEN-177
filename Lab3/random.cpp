@@ -4,7 +4,7 @@
 #include<stdio.h>
 
 using namespace std;
-/* Comments help me keep track and understand*/
+
 int main(int argc, char**argv) {
 
   int num_pages=atoi(argv[1]);
