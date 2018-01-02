@@ -27,7 +27,7 @@ void create(int N){
 
 		}
 	 
-	}//while loop
+	}
 	
 }
 
