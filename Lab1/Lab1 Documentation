@@ -1,0 +1,22 @@
+Alma Niu
+
+COEN 177
+
+The goal of this lab is to make sure we understand the creation of processes with Unix-like operating systems. We have to write our own shell program  for creating child processes. Shell, a user interface,  helps us access to operating system's services.
+
+
+For part 1, I take in inputs and launch the testing program if the user did not use 'exit'. I also used the fork() function to create a child process. I tested my program by typing "hello world" to execute and "exit" to end the program. Further more, after I finish the 4th programming task, I tested this shell program by typing my Lab file names   inside the shell program and it runs.
+
+
+
+For part 2, I used recursion to ensure that my program will create  exactly EIGHT child processes, not allowing any single process to create more than 1 children. I keep incrementing my parameter by 1 until it reaches 8, the base case for my recursion.
+
+For part 3, I drew a tree manually. Each process creates 2/3 additional child processes until 12 children are created. The maximum height of my tree is 2. For the final level, I exit the program to stop further creation. Also, I set my loop initializer to i=-1 to restart the for loop , which create 3 child more child processes as I go down the tree.
+
+
+For part 4, my strategy was similar to part 3. However, I had 17 child processes and  the height of my tree goes up to 3. I created 2 child processes after another  each except for the 3rd children from the parent. The 3rd children from the parent only creates two more and then stops.
+
+
+
+
+
