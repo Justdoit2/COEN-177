@@ -68,7 +68,7 @@ char read[10]; int Pagenum;
   
 
 
-}//while loop
+}//while loop bracket
 
 printf("The number of lines is %d and the number of page faults is %d\n",lines,pageFaults);
 
