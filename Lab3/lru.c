@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 #define BUFFERSIZE 10
- /* Comments are for me to remember and understand */
+
 
 int main(int argc, char ** argv) {
 
