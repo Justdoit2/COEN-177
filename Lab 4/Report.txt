@@ -1,0 +1,74 @@
+Alma Niu
+COEN 177
+Lab 5
+
+
+512 kb
+[aniu@linux60424 Desktop]$ split -b 524288 10MBfile c
+[aniu@linux60424 Desktop]$ md5sum caa cab cac cad cae caf cag cah cai caj cak cal cam can cao cap caq car cas cat
+a44d4c6cddf03da1ebbfbc37e522c1bf  caa
+6a8f15e0261e58196ab9736ea1cfd1d3  cab
+a44d4c6cddf03da1ebbfbc37e522c1bf  cac
+6a8f15e0261e58196ab9736ea1cfd1d3  cad
+a44d4c6cddf03da1ebbfbc37e522c1bf  cae
+6a8f15e0261e58196ab9736ea1cfd1d3  caf
+a44d4c6cddf03da1ebbfbc37e522c1bf  cag
+6a8f15e0261e58196ab9736ea1cfd1d3  cah
+a44d4c6cddf03da1ebbfbc37e522c1bf  cai
+6a8f15e0261e58196ab9736ea1cfd1d3  caj
+a44d4c6cddf03da1ebbfbc37e522c1bf  cak
+6a8f15e0261e58196ab9736ea1cfd1d3  cal
+a44d4c6cddf03da1ebbfbc37e522c1bf  cam
+6a8f15e0261e58196ab9736ea1cfd1d3  can
+a44d4c6cddf03da1ebbfbc37e522c1bf  cao
+6a8f15e0261e58196ab9736ea1cfd1d3  cap
+a44d4c6cddf03da1ebbfbc37e522c1bf  caq
+6a8f15e0261e58196ab9736ea1cfd1d3  car
+a44d4c6cddf03da1ebbfbc37e522c1bf  cas
+6a8f15e0261e58196ab9736ea1cfd1d3  cat
+[aniu@linux60424 Desktop]$
+
+After comparing the hash values from the 512kb chunk, I noticed how there are two distinct hash values that alternates between each other. 
+
+
+1000,000 bytes
+[aniu@linux60424 Desktop]$ md5sum caa cab cac cad cae caf cag cah cai caj cak
+95d384c6f8c3373bacdecb21f77c7151  caa
+3c25bc3301743b29476837ea7f1a533e  cab
+d614d9f53b61bd4d33ea2513216c30fe  cac
+b1d64bc1bc79ea4d046410229b493adc  cad
+a92fc640b7546b8efeb275c68e650f80  cae
+fbdb8dcbbec14ff2eb9679bf85f2a8f8  caf
+c85d06daed0d032964001606670a1633  cag
+a3604b10508e17b0d0ff0bf9fd7dbd4a  cah
+b58720ec1129e6302115d11e2ea54cb3  cai
+f027db6f141126a0593ebb362431ebdc  caj
+73c00bb7ba1e92fe0348818abe3695cb  cak
+
+After comparing the hash values from the 1000000 bytes chunk, I noticed how all the hash values are distinct, therefore there are no identicals/duplicates. Perhaps because when I split a file into chunk that is not divisible by the origial file size, the contents will not be the same since each one doesn't match the original file. 
+
+[aniu@linux60424 Desktop]$
+
+1MB
+aniu@linux60424 Desktop]$ split -b 1048576 10MBfile c
+[aniu@linux60424 Desktop]$ md5sum caa cab cac cad cae caf cag cah cai caj
+f408259e291ecba9c8458580554743ce  caa
+f408259e291ecba9c8458580554743ce  cab
+f408259e291ecba9c8458580554743ce  cac
+f408259e291ecba9c8458580554743ce  cad
+f408259e291ecba9c8458580554743ce  cae
+f408259e291ecba9c8458580554743ce  caf
+f408259e291ecba9c8458580554743ce  cag
+f408259e291ecba9c8458580554743ce  cah
+f408259e291ecba9c8458580554743ce  cai
+f408259e291ecba9c8458580554743ce  caj
+[aniu@linux60424 Desktop]$
+
+After comparing the hash values in the 1MB chunk, I noticed how all the hash values are identical. Also, I noticed a pattern between the 512kB chunk and 1MB chunk. The 512 kb  is half of 1024 kb. And 1024 kb = 1mb. Therefore, the chunk from the first output is half the size of the chunk from the third output. As an anology , pretend I have a block/file that says “Hello World”, with the words on separate lines. The 512kb chunk reads the “Hello” part and then the “World” part, repeating the words separately. As a result, that is why the 512kb output has two distinct alternating hash values. On the other hand, the 1MB chunk reads “Hello World” as one unit and then repeats, reading “Hello World” again.  As a result, the 1MB chunk has only one distinct hash value.  
+
+Overall, from the 1MB chunk’s output, all the contents in caa, cab, cac, cad, cae, caf, cag, cah, cai, and caj are the same. Therefore, we can keep one content and erase the rest of them. This is important, because we get rid of clutter in files.
+
+One other thing I want to address is security in operating systems. Security can mean preventing access to resources for unauthorized users. From data, it is not hard to figure out a hash value for a certain password. However, from hash, it is hard to figure out the word that created this hash. So  hash is a method for how the OS ask for our password without writing it down. 
+
+
+
