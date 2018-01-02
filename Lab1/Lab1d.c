@@ -3,10 +3,10 @@
 #include<unistd.h>
 #include<string.h>
 
-//PRINT 17 child processes, with 2 to  child per parent!
+//PRINT 17 child processes, with 2 to  child per parent
 void seventeenChild(){
   
- //fork creates child process
+
  //getpid gets parent id 
  int status;
  
@@ -23,7 +23,7 @@ void seventeenChild(){
      
        if(level==2 && i==2){
           int x=getpid()+1;
-           printf("Child:%d Parentt:%d\n",x,getpid()); //print additional 2 child processes on level 3 then stop
+           printf("Child:%d Parentt:%d\n",x,getpid()); 
            
            printf("Child:%d Parentt:%d\n",x+1,getpid());
            exit(0);
