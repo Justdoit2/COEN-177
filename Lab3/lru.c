@@ -6,13 +6,13 @@
 
 int main(int argc, char ** argv) {
 
-int num_pages=atoi(argv[1]); //take in an arg on terminal
+int num_pages=atoi(argv[1]);
    
-int *pages=(int*)malloc(num_pages*sizeof(int)); //size of pointer , takes num of pages
+int *pages=(int*)malloc(num_pages*sizeof(int)); 
 
-char buffer[BUFFERSIZE]; //read into 
+char buffer[BUFFERSIZE]; 
       int lines=0; int faults=0;
-while(fgets(buffer,BUFFERSIZE,stdin)) { //need char array on left, buffersize for num of characters
+while(fgets(buffer,BUFFERSIZE,stdin)) { 
          ++lines;
          if(!(isdigit((int)(buffer[0])))) {
                    continue;
@@ -29,15 +29,15 @@ while(fgets(buffer,BUFFERSIZE,stdin)) { //need char array on left, buffersize fo
 
                 	foundIdx=i;
 
-                    }//if statement
+                    }//if statement bracket
 
              
- } //for loop
+ } //loop bracket
 
         if(foundIdx==-1) {
             	printf("Page number %d caused a page fault\n", requestNum);
                    ++faults;
-                pages[num_pages-1]=requestNum; //set far right to new number
+                pages[num_pages-1]=requestNum; 
 
                 int i;
                
@@ -45,24 +45,24 @@ while(fgets(buffer,BUFFERSIZE,stdin)) { //need char array on left, buffersize fo
   						
 			pages[i]=pages[i+1];
 
-                   }//inner for loop
+                   }
                
-		continue ; //restart back to while loop, skipping bottom
+		continue ; 
             
-		 }//outer if statement
+		 }
            
 		  
-        pages[num_pages-1]=pages[foundIdx]; //found page put in very back right
+        pages[num_pages-1]=pages[foundIdx]; 
           
         int j;
           
-        for (j=foundIdx;j<num_pages-1;++j) { //everything to right found shifts 1 to left
+        for (j=foundIdx;j<num_pages-1;++j) { 
                     
         	pages[j]=pages[j+1];
           
-        }//for loop
+        }
    
-    } //while loop
+    } 
     printf("Number of lines read is %d and number of page fault is %d\n",lines,faults);
   return 0;
 }
