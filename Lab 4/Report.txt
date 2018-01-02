@@ -2,7 +2,7 @@
 COEN 177
 Lab 5
 
-Our goal in this assignment is n not to implement any major code, but to investigate the nature of a file.
+Our goal in this assignment is not to implement any major code, but to investigate the nature of a file.
 
 512 kb
 [aniu@linux60424 Desktop]$ split -b 524288 10MBfile c
