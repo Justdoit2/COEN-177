@@ -1,21 +1,24 @@
-Alma Niu
+Programming Assignment #1: Creating Processes
+Due Date: Demo Schedule a time with your TA before your next lab (October 4th, 5th, and 6th),
 
-COEN 177
+submit code and documentation before the end of that day 
 
-The goal of this lab is to make sure we understand the creation of processes with Unix-like operating systems. We have to write our own shell program  for creating child processes. Shell, a user interface,  helps us access to operating system's services.
+The Basic Programming Task (up to 20 points)
 
+The goal of this assignment is to make sure you fully comprehend (and are able to realize) the creation of processes with Unix-like operating systems. To this end you will be using the fork() system call.
 
-For part 1, I take in inputs and launch the testing program if the user did not use 'exit'. I also used the fork() function to create a child process. I tested my program by typing "hello world" to execute and "exit" to end the program. Further more, after I finish the 4th programming task, I tested this shell program by typing my Lab file names   inside the shell program and it runs.
+You are to write a very simple shell program, similar to the example covered in lecture. The shell should terminate if the user enters “exit” at the command line, and should attempt to launch a program in response to any other input string. You do not have to parse any parameters, nor do you need to support background execution of processes. The simplest possible shell to demonstrate is all that is required. You may wish to write a “hello world” program, so that you have an executable file that you could launch from your shell.
+The Second Programming Task (up to 10 additional points):
 
+You are to write a program that will create exactly eight child processes (not including the initial program itself). You are not to allow any single process to create more than two child processes.
 
+The Third Programming Task (up to an additional 20 points)
 
-For part 2, I used recursion to ensure that my program will create  exactly EIGHT child processes, not allowing any single process to create more than 1 children. I keep incrementing my parameter by 1 until it reaches 8, the base case for my recursion.
+You are to write a program that, when launched, will result in a total of twelve child processes to run. This is the same task as described above, but this time you are not to allow any single process which creates children to create less than two child processes, or more than three. In other words, the program you write can only launch a maximum of three child processes directly, and any other “children” will have to be created by the children of this parent process (subject to the restriction of only creating two or three processes each). Once again, any process that creates other processes must create either two or three processes only, no more and no less.
 
-For part 3, I drew a tree manually. Each process creates 2/3 additional child processes until 12 children are created. The maximum height of my tree is 2. For the final level, I exit the program to stop further creation. Also, I set my loop initializer to i=-1 to restart the for loop , which create 3 child more child processes as I go down the tree.
+The Fourth Programming Task (up to an additional 20 points)
 
-
-For part 4, my strategy was similar to part 3. However, I had 17 child processes and  the height of my tree goes up to 3. I created 2 child processes after another  each except for the 3rd children from the parent. The 3rd children from the parent only creates two more and then stops.
-
+You are to write a program that, when launched, will result in a total of seventeen child processes to run. This is the same task as described above, again this time you are not to allow any single process which creates children to create less than two child processes, or more than three. In other words, the program you write can only launch a maximum of three child processes directly, and any other “children” will have to be created by the children of this parent process (subject to the restriction of only creating two or three processes each). Once again, any process that creates other processes must create either two or three processes only, no more and no less.
 
 
 
